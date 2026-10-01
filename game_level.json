@@ -1,0 +1,7 @@
+{
+  "beginner_popular": ["IN", "CN", "JP", "KR", "SA", "RU"],
+  "continents": {
+    "asia": ["IN", "CN", "JP", "KR", "VN", "NP", "PK", "TH", "MY", "ID", "PH", "SA"],
+    "europe": ["FR", "DE", "GB", "IT", "ES", "AD", "CH", "NL", "BE", "AT"]
+  }
+}

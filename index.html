@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>World Map Game</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            background: #101e3e;
+            margin: 0;
+            padding: 20px;
+            color: #fff;
+        }
+
+        #control-panel {
+            background: #274896;
+            max-width: 1000px;
+            margin: 0 auto 15px auto;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+        .ui-group { display: flex; align-items: center; gap: 5px; font-weight: bold; }
+
+        select, button {
+            padding: 8px 12px;
+            font-size: 1rem;
+            border-radius: 4px;
+            border: 1px solid #94a3b8;
+        }
+
+        #start-btn {
+            background: #0284c7;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #start-btn:hover { background: #0369a1; }
+
+        #stats-panel {
+            background: #92aae3;
+            max-width: 1000px;
+            margin: 0 auto 20px auto;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-around;
+            font-size: 1.1rem;
+        }
+        .stat-val {
+            font-weight: bold;
+            color: #0f172a;
+        }
+
+
+        #ui-panel { margin-bottom: 20px; font-size: 1.2rem; }
+
+        #map-wrapper {
+            position: relative;
+            height: 600px;
+            margin: 0 auto;
+            border: 2px solid #ccc;
+            background: #e0f2fe;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 95vw;
+            height: 80vh;
+            /*user-select: none; /* Prevents text highlighting while dragging the map */*/
+        }
+        #map-container { width: 100%; height: 100%; }
+
+        svg path {
+            fill: #00171d;
+            stroke: #def0fc;
+            stroke-width: 0.08;
+            cursor: pointer;
+            transition: fill 0.2s;
+        }
+        svg path:hover { fill: #a46c00; }
+
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 10;
+        }
+        .controls button {
+            width: 55px;
+            height: 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: white;
+            border: 1px solid #94a3b8;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            align-items: center;
+        }
+        .controls button:hover { background: #f1f5f9; }
+    </style>
+</head>
+<body>
+
+    <div id="control-panel">
+        <div class="ui-group">
+            <label for="mode-select">Game Mode:</label>
+            <select id="mode-select">
+                <option value="beginner">Beginner (Popular Countries)</option>
+                <option value="asia">Continent: Asia</option>
+                <option value="europe">Continent: Europe</option>
+                <option value="advanced">Advanced (All Map Countries)</option>
+            </select>
+        </div>
+        <button id="start-btn">Start Game</button>
+    </div>
+
+    <div id="stats-panel">
+        <div>Find: <span id="target-display" style="font-weight:bold; color:#0284c7;">Click Start!</span></div>
+        <div>Timer: <span id="timer-display" class="stat-val">00:00</span></div>
+        <div>Score: <span id="score-display" class="stat-val">0 / 0</span></div>
+        <div>Current Mistakes: <span id="mistake-display" class="stat-val" style="color:#9b0000;">0 / 6</span></div>
+    </div>
+
+    <div id="map-wrapper">
+        <div id="map-container"></div>
+        <div class="controls">
+            <button id="zoom-in">+</button>
+            <button id="zoom-out">−</button>
+            <button id="reset" style="padding-right: 40px">⟲</button>
+        </div>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+</body>
+</html>
